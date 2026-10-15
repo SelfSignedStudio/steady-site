@@ -20,14 +20,14 @@
 <body>
 <main>
   <h1>Steady State Privacy Policy</h1>
-  <p class="meta">Effective 8 October 2026</p>
+  <p class="meta">Effective 15 October 2026</p>
 
   <p>Steady State is an Android app for aerobic training. It reads the rides, recovery and lifting data you already record elsewhere and shows whether you are building Zone 2 volume, whether each ride stayed in its intended zone, and how that changes over time. You never type in training data. This policy explains what the app reads, what it keeps, and what leaves your phone.</p>
 
   <h2>What the app reads</h2>
   <p>Everything is read only. Steady State never writes, edits or deletes data in any of these places.</p>
   <ul>
-    <li><strong>Health Connect</strong>, with your permission: exercise sessions for rides, with their heart rate, speed, cadence, distance and routes; resting heart rate; heart rate variability; sleep sessions; heart rate overnight (to find the lowest overnight heart rate for apps that don't record resting heart rate); weight; and nutrition (daily protein and energy). With the background permission it reads new data every 6 hours while the app is closed; with the history permission it reads the past 12 weeks. You can remove its access at any time in Health Connect.</li>
+    <li><strong>Health Connect</strong>, with your permission: exercise sessions for rides, with their heart rate, speed, cadence, distance and routes; resting heart rate; heart rate variability; sleep sessions; heart rate overnight (to find the lowest overnight heart rate for apps that don't record resting heart rate); heart rate during your Hevy workouts (Hevy doesn't record it, so it is taken from the app that recorded it best in that time); weight; and nutrition (daily protein and energy). With the background permission it reads new data every 6 hours while the app is closed; with the history permission it reads the past 12 weeks. You can remove its access at any time in Health Connect.</li>
     <li><strong>intervals.icu</strong>, if you connect it with your own API key: your athlete profile (name, time zone, date of birth, heart-rate zones) and your activities with their heart rate, cadence, speed and GPS streams.</li>
     <li><strong>Hevy</strong>, if you connect it with your own API key: your workouts, with exercises, sets, weights and repetitions, and the muscle groups of those exercises.</li>
   </ul>
@@ -41,15 +41,18 @@
     <li>daily resting heart rate, heart rate variability and sleep for the week, with weekly averages for the eight weeks before, and the names of the apps they came from;</li>
     <li>if Hevy is connected: the week's workouts with their exercises and sets, sets per muscle group, estimated one-rep maxes, and how far leg sessions were from hard rides;</li>
     <li>weekly average body weight, and daily protein and energy totals;</li>
-    <li>your age, maximum heart rate, heart-rate zones, zone method and weekly target.</li>
+    <li>your age, maximum heart rate, heart-rate zones, zone method and weekly target;</li>
+    <li>training load worked out on your phone: fitness, fatigue and training balance for riding, lifting and both together, today and for the eight weeks before; daily readiness for the week with its parts (HRV, resting heart rate, sleep and protein against your usual or target); protein and weight flags; hard sets per body region against your target; your main lifts' estimated one-rep maxes; and leg days that fell within a day of a big ride.</li>
   </ul>
+  <p>With the same key, when an exercise appears in your Hevy workouts for the first time, Steady State sends Anthropic that exercise's name, Hevy type, equipment and muscle groups, and nothing about you or your sets, so Claude can rate how demanding the exercise is (overall, per body region, and how long it takes to recover from). Each exercise is sent once; the rating is kept on your phone.</p>
+  <p>With the same key, when something notable happens (fitness rising fast, recovery low for several days, a sharp overnight drop in readiness, a session far above your usual, or a leg day close to a big ride), Steady State sends Anthropic that event with today's training balance, readiness and the last two weeks' daily training load, so Claude can write a short note. This happens at most once a day and three times a week; the note is kept on your phone.</p>
   <p>Raw heart-rate, speed, cadence and GPS streams are never sent, nor are your API keys for other services, your name or your intervals.icu athlete ID. Requests are made with your key and billed to your Anthropic account, and Anthropic processes them under its API terms and privacy policy. Without an Anthropic key, nothing leaves your phone except the read requests described above.</p>
 
   <h2>What is stored on your phone</h2>
   <ul>
     <li>A cache of what was read: rides and their streams, daily recovery, body and nutrition values, and Hevy workouts, kept so the app works offline and can recompute zones. "Clear cache and resync" in Settings deletes it and reads it again.</li>
-    <li>Weekly assessments, each with the summary that was sent for it.</li>
-    <li>Your settings: ride source, zone method, age and optional measured maximum heart rate, weekly target, week start day, which app feeds each measure, and your intervals.icu athlete ID and profile.</li>
+    <li>Weekly assessments, each with the summary that was sent for it, Claude's notes, and Claude's ratings of your exercises. Both are kept through "Clear cache and resync", as they can't be read again from your sources.</li>
+    <li>Your settings: ride source, zone method, age, optional measured maximum heart rate and lactate threshold heart rate, weekly target, week start day, which app feeds each measure, and your intervals.icu athlete ID and profile.</li>
     <li>Your API keys, encrypted with a key held in Android's hardware-backed Keystore. After you save one, the app shows only its last four characters.</li>
   </ul>
 
