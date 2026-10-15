@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Steady State Privacy Policy</title>
+<style>
+  :root { --paper: #ede4cf; --ink: #1a1612; --muted: #5e564a; --rule: #c2b89e; }
+  @media (prefers-color-scheme: dark) { :root { --paper: #1a1612; --ink: #ede4cf; --muted: #b8ae99; --rule: #4a4338; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 Georgia, "Times New Roman", serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 30px; font-weight: normal; margin: 0 0 4px; }
+  .meta { font: 12px/1.4 ui-monospace, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 32px; }
+  h2 { font-size: 19px; font-weight: normal; font-style: italic; margin: 32px 0 8px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  p, li { margin: 0 0 12px; }
+  ul { padding-left: 20px; }
+  a { color: var(--ink); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Steady State Privacy Policy</h1>
+  <p class="meta">Effective 8 October 2026</p>
+
+  <p>Steady State is an Android app for aerobic training. It reads the rides, recovery and lifting data you already record elsewhere and shows whether you are building Zone 2 volume, whether each ride stayed in its intended zone, and how that changes over time. You never type in training data. This policy explains what the app reads, what it keeps, and what leaves your phone.</p>
+
+  <h2>What the app reads</h2>
+  <p>Everything is read only. Steady State never writes, edits or deletes data in any of these places.</p>
+  <ul>
+    <li><strong>Health Connect</strong>, with your permission: exercise sessions for rides, with their heart rate, speed, cadence, distance and routes; resting heart rate; heart rate variability; sleep sessions; heart rate overnight (to find the lowest overnight heart rate for apps that don't record resting heart rate); weight; and nutrition (daily protein and energy). With the background permission it reads new data every 6 hours while the app is closed; with the history permission it reads the past 12 weeks. You can remove its access at any time in Health Connect.</li>
+    <li><strong>intervals.icu</strong>, if you connect it with your own API key: your athlete profile (name, time zone, date of birth, heart-rate zones) and your activities with their heart rate, cadence, speed and GPS streams.</li>
+    <li><strong>Hevy</strong>, if you connect it with your own API key: your workouts, with exercises, sets, weights and repetitions, and the muscle groups of those exercises.</li>
+  </ul>
+  <p>These requests go from your phone straight to Health Connect, intervals.icu (intervals.icu) and Hevy (api.hevyapp.com), under each service's own terms.</p>
+
+  <h2>What leaves your phone</h2>
+  <p>Only if you enter an Anthropic API key of your own, Steady State writes a weekly assessment with Claude, an AI model made by Anthropic. Once a week (on the evening of the last day of your week) and whenever you tap Regenerate, it sends Anthropic's API (api.anthropic.com) a summary of the week, built on your phone:</p>
+  <ul>
+    <li>each session's date, start time, sport, duration, minutes per heart-rate zone, easy or hard label, and average cadence;</li>
+    <li>weekly Zone 2 and Zone 3 totals for the eight weeks before;</li>
+    <li>daily resting heart rate, heart rate variability and sleep for the week, with weekly averages for the eight weeks before, and the names of the apps they came from;</li>
+    <li>if Hevy is connected: the week's workouts with their exercises and sets, sets per muscle group, estimated one-rep maxes, and how far leg sessions were from hard rides;</li>
+    <li>weekly average body weight, and daily protein and energy totals;</li>
+    <li>your age, maximum heart rate, heart-rate zones, zone method and weekly target.</li>
+  </ul>
+  <p>Raw heart-rate, speed, cadence and GPS streams are never sent, nor are your API keys for other services, your name or your intervals.icu athlete ID. Requests are made with your key and billed to your Anthropic account, and Anthropic processes them under its API terms and privacy policy. Without an Anthropic key, nothing leaves your phone except the read requests described above.</p>
+
+  <h2>What is stored on your phone</h2>
+  <ul>
+    <li>A cache of what was read: rides and their streams, daily recovery, body and nutrition values, and Hevy workouts, kept so the app works offline and can recompute zones. "Clear cache and resync" in Settings deletes it and reads it again.</li>
+    <li>Weekly assessments, each with the summary that was sent for it.</li>
+    <li>Your settings: ride source, zone method, age and optional measured maximum heart rate, weekly target, week start day, which app feeds each measure, and your intervals.icu athlete ID and profile.</li>
+    <li>Your API keys, encrypted with a key held in Android's hardware-backed Keystore. After you save one, the app shows only its last four characters.</li>
+  </ul>
+
+  <h2>Backup</h2>
+  <p>Your settings are included in Android's own backup to your Google account, if backup is turned on for your phone, so a new phone gets them back. The cache of health and training data, the weekly assessments and your API keys are excluded from backup and from device-to-device transfer. After a restore, the app asks for the keys again and reads your data again from its sources.</p>
+
+  <h2>What Steady State does not do</h2>
+  <p>There is no Steady State server and no account. The app contains no analytics, advertising or tracking code, and it sends nothing to the developer. Health Connect data is not used for advertising, sold or shared with anyone other than Anthropic as described above, and then only when you have entered your own Anthropic key.</p>
+
+  <h2>Deleting your data</h2>
+  <p>Disconnecting a service in Settings wipes its key from the phone. "Clear cache and resync" deletes the cached data. Uninstalling Steady State deletes everything it stored on the phone. Data in Health Connect, intervals.icu and Hevy is never changed by the app and stays there. To delete summaries Anthropic received, see Anthropic's data retention terms for your API account. To delete settings from a Google backup, manage backups in your Google account.</p>
+
+  <h2>Not medical advice</h2>
+  <p>Steady State and its weekly assessment describe training data. They are not medical advice and make no diagnoses.</p>
+
+  <h2>Children</h2>
+  <p>Steady State is not directed at children under 13.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this policy changes, the new version will be posted at this address with a new effective date. Questions: <a href="mailto:privacy@selfsigned.studio">privacy@selfsigned.studio</a>.</p>
+</main>
+</body>
+</html>
